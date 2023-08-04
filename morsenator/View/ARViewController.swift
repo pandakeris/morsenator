@@ -26,23 +26,15 @@ struct ARViewIndicator: UIViewControllerRepresentable {
 }
 
 class ARViewController: UIViewController, ARSessionDelegate {
-//    var arView: ARView {
-//        return view as! ARView
-//    }
-    
     private var arView: ARView!
-        
+
     var currentBuffer: CVPixelBuffer?
-    
+
     let visionQueue = DispatchQueue(label: "morsenator.visionqueue")
 
     private var viewportSize: CGSize! {
         return arView.frame.size
     }
-
-//    override func loadView() {
-//        view = ARView()
-//    }
 
     private var detectRemoteControl: Bool = true
 
@@ -60,7 +52,7 @@ class ARViewController: UIViewController, ARSessionDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         arView = ARView(frame: view.bounds)
         view.addSubview(arView)
 //        arView.delegate = self
@@ -94,7 +86,7 @@ class ARViewController: UIViewController, ARSessionDelegate {
         configuration.environmentTexturing = .automatic
         configuration.planeDetection = .horizontal
         arView.session.run(configuration)
-        
+
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         coachingOverlay.session = arView.session
@@ -102,11 +94,11 @@ class ARViewController: UIViewController, ARSessionDelegate {
         arView.addSubview(coachingOverlay)
 
         arView.session.delegate = self
-        
+
         let anchor = AnchorEntity() // Anchor (anchor that fixes the AR model)
         anchor.position = simd_make_float3(0, -0.5, -1) // The position of the anchor is 0.5m below, 1m away the initial position of the device.
         let box = ModelEntity(mesh: .generateBox(size: simd_make_float3(0.3, 0.1, 0.2), cornerRadius: 0.03))
-         // Make a model from a box mesh with a width of 0.3m, a height of 0.1m, a depth of 0.2m, and a radius of rounded corners of 0.03m.
+        // Make a model from a box mesh with a width of 0.3m, a height of 0.1m, a depth of 0.2m, and a radius of rounded corners of 0.03m.
         box.transform = Transform(pitch: 0, yaw: 1, roll: 0) // Rotate the box model 1 radian on the Y axis
         anchor.addChild(box) // Add a box to the child of the anchor in the hierarchy.
         arView.scene.anchors.append(anchor) // Add an anchor to arView
@@ -144,9 +136,9 @@ class ARViewController: UIViewController, ARSessionDelegate {
             print("Object detection error: \(error!.localizedDescription)")
             return
         }
-        
+
         guard let results = request.results else { return }
-        
+
         if detectRemoteControl == false {
             return
         }
@@ -181,16 +173,15 @@ class ARViewController: UIViewController, ARSessionDelegate {
 
 //            let anchor = ARAnchor(name: "remoteObjectAnchor", transform: result.worldTransform)
 //            arView.session.add(anchor: anchor)
-            
 
             // Add a new anchor at the tap location.
             let arAnchor = ARAnchor(transform: result.worldTransform)
             arView.session.add(anchor: arAnchor)
-            
+
             let anchor = AnchorEntity(anchor: arAnchor) // Anchor (anchor that fixes the AR model)
             anchor.position = simd_make_float3(0, -0.5, -1) // The position of the anchor is 0.5m below, 1m away the initial position of the device.
             let box = ModelEntity(mesh: .generateBox(size: simd_make_float3(0.3, 0.1, 0.2), cornerRadius: 0.03))
-             // Make a model from a box mesh with a width of 0.3m, a height of 0.1m, a depth of 0.2m, and a radius of rounded corners of 0.03m.
+            // Make a model from a box mesh with a width of 0.3m, a height of 0.1m, a depth of 0.2m, and a radius of rounded corners of 0.03m.
             box.transform = Transform(pitch: 0, yaw: 1, roll: 0) // Rotate the box model 1 radian on the Y axis
             anchor.addChild(box) // Add a box to the child of the anchor in the hierarchy.
             arView.scene.anchors.append(anchor) // Add an anchor to arView
@@ -201,21 +192,19 @@ class ARViewController: UIViewController, ARSessionDelegate {
         }
     }
 
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+    func session(_: ARSession, didUpdate frame: ARFrame) {
         // Do not enqueue other buffers for processing while another Vision task is still running.
         // The camera stream has only a finite amount of buffers available; holding too many buffers for analysis would starve the camera.
 
         guard currentBuffer == nil, case .normal = frame.camera.trackingState else {
             return
         }
-        
+
         // Retain the image buffer for Vision processing.
-        self.currentBuffer = frame.capturedImage
-        
-        
+        currentBuffer = frame.capturedImage
+
         // Most computer vision tasks are not rotation agnostic so it is important to pass in the orientation of the image with respect to device.
         let orientation = CGImagePropertyOrientation(rawValue: UInt32(UIDevice.current.orientation.rawValue)) ?? .leftMirrored
-
 
         let requestHandler = VNImageRequestHandler(cvPixelBuffer: currentBuffer!, orientation: orientation)
         visionQueue.async {
@@ -227,21 +216,5 @@ class ARViewController: UIViewController, ARSessionDelegate {
                 print("Error: Vision request failed with error \"\(error)\"")
             }
         }
-
     }
-
-//    func renderer(_: SCNSceneRenderer, willRenderScene _: SCNScene, atTime _: TimeInterval) {
-//        // Get the capture image (which is a cvPixelBuffer) from the current ARFrame
-//        guard let capturedImage = arView.session.currentFrame?.capturedImage else { return }
-//
-//        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: capturedImage,
-//                                                        orientation: .leftMirrored,
-//                                                        options: [:])
-//
-//        do {
-//            try imageRequestHandler.perform([objectDetectionRequest])
-//        } catch {
-//            print("Failed to perform image request.")
-//        }
-//    }
 }
