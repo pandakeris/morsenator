@@ -15,6 +15,12 @@
 		740E80CC2A77A4CC00D92D24 /* morsenatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740E80CB2A77A4CC00D92D24 /* morsenatorUITests.swift */; };
 		740E80CE2A77A4CC00D92D24 /* morsenatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740E80CD2A77A4CC00D92D24 /* morsenatorUITestsLaunchTests.swift */; };
 		93B0D5A92A78BE40005CD5D1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5A82A78BE40005CD5D1 /* MenuItem.swift */; };
+		93B0D5AB2A78F2DE005CD5D1 /* AR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */; };
+		93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */; };
+		93B0D5B02A79039E005CD5D1 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5AF2A79039E005CD5D1 /* ARView.swift */; };
+		93B0D5B22A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */; };
+		93B0D5B32A7A6363005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */; };
+		93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */; };
 		93F01BE72A77C0D000D57B5B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE62A77C0D000D57B5B /* Home.swift */; };
 		93F01BEA2A77C16700D57B5B /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE92A77C16700D57B5B /* IconButton.swift */; };
 		93F01BEC2A77C18400D57B5B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BEB2A77C18400D57B5B /* Button.swift */; };
@@ -52,6 +58,12 @@
 		740E80CB2A77A4CC00D92D24 /* morsenatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morsenatorUITests.swift; sourceTree = "<group>"; };
 		740E80CD2A77A4CC00D92D24 /* morsenatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morsenatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		93B0D5A82A78BE40005CD5D1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AR.storyboard; sourceTree = "<group>"; };
+		93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		93B0D5AE2A78FD7B005CD5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		93B0D5AF2A79039E005CD5D1 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
+		93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3TinyInt8LUT.mlmodel; sourceTree = "<group>"; };
+		93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov8s.mlmodel; sourceTree = "<group>"; };
 		93F01BE62A77C0D000D57B5B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		93F01BE92A77C16700D57B5B /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		93F01BEB2A77C18400D57B5B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -108,12 +120,14 @@
 		740E80AF2A77A4CB00D92D24 /* morsenator */ = {
 			isa = PBXGroup;
 			children = (
+				93B0D5AE2A78FD7B005CD5D1 /* Info.plist */,
 				93F01BED2A77C1AF00D57B5B /* Model */,
 				93F01BE82A77C14800D57B5B /* Component */,
 				93F01BE52A77C09E00D57B5B /* View */,
 				740E80B02A77A4CB00D92D24 /* morsenatorApp.swift */,
 				740E80B22A77A4CB00D92D24 /* ContentView.swift */,
-				740E80B42A77A4CC00D92D24 /* Assets.xcassets */,
+				93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */,
+				93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */,
 				740E80B62A77A4CC00D92D24 /* Preview Content */,
 			);
 			path = morsenator;
@@ -148,6 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				93F01BE62A77C0D000D57B5B /* Home.swift */,
+				93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */,
+				740E80B42A77A4CC00D92D24 /* Assets.xcassets */,
+				93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */,
+				93B0D5AF2A79039E005CD5D1 /* ARView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,6 +296,7 @@
 			files = (
 				740E80B82A77A4CC00D92D24 /* Preview Assets.xcassets in Resources */,
 				740E80B52A77A4CC00D92D24 /* Assets.xcassets in Resources */,
+				93B0D5AB2A78F2DE005CD5D1 /* AR.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,8 +321,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B0D5B32A7A6363005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 				93F01BEC2A77C18400D57B5B /* Button.swift in Sources */,
 				93F01BEF2A77C1C500D57B5B /* FancyToast.swift in Sources */,
+				93B0D5B02A79039E005CD5D1 /* ARView.swift in Sources */,
 				93F01BEA2A77C16700D57B5B /* IconButton.swift in Sources */,
 				740E80B32A77A4CB00D92D24 /* ContentView.swift in Sources */,
 				93F01BE72A77C0D000D57B5B /* Home.swift in Sources */,
@@ -311,6 +332,8 @@
 				93B0D5A92A78BE40005CD5D1 /* MenuItem.swift in Sources */,
 				93F01BF32A77C1F700D57B5B /* FancyToastView.swift in Sources */,
 				93F01BF12A77C1DF00D57B5B /* FancyToastStyle.swift in Sources */,
+				93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */,
+				93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +351,7 @@
 			files = (
 				740E80CE2A77A4CC00D92D24 /* morsenatorUITestsLaunchTests.swift in Sources */,
 				740E80CC2A77A4CC00D92D24 /* morsenatorUITests.swift in Sources */,
+				93B0D5B22A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,9 +493,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"morsenator/Preview Content\"";
-				DEVELOPMENT_TEAM = MTGV8S7M8J;
+				DEVELOPMENT_TEAM = J8A42WJ9LX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = morsenator/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You need camera to use AR";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -498,9 +524,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"morsenator/Preview Content\"";
-				DEVELOPMENT_TEAM = MTGV8S7M8J;
+				DEVELOPMENT_TEAM = J8A42WJ9LX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = morsenator/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You need camera to use AR";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
