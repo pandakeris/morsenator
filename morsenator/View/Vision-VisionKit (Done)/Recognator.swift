@@ -1,6 +1,6 @@
 //
 //  Recognator.swift
-//  I2T
+//  morsenator
 //
 //  Created by Timothyus Kevin Dewanto on 02/08/23.
 //
