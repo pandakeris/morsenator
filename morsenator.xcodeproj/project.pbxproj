@@ -21,6 +21,7 @@
 		93B0D5B22A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */; };
 		93B0D5B32A7A6363005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */; };
 		93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */; };
+		93B0D5B82A80CD3F005CD5D1 /* Morse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B72A80CD3F005CD5D1 /* Morse.swift */; };
 		93F01BE72A77C0D000D57B5B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE62A77C0D000D57B5B /* Home.swift */; };
 		93F01BEA2A77C16700D57B5B /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE92A77C16700D57B5B /* IconButton.swift */; };
 		93F01BEC2A77C18400D57B5B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BEB2A77C18400D57B5B /* Button.swift */; };
@@ -64,6 +65,7 @@
 		93B0D5AF2A79039E005CD5D1 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3TinyInt8LUT.mlmodel; sourceTree = "<group>"; };
 		93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov8s.mlmodel; sourceTree = "<group>"; };
+		93B0D5B72A80CD3F005CD5D1 /* Morse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Morse.swift; sourceTree = "<group>"; };
 		93F01BE62A77C0D000D57B5B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		93F01BE92A77C16700D57B5B /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		93F01BEB2A77C18400D57B5B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		740E80AF2A77A4CB00D92D24 /* morsenator */ = {
 			isa = PBXGroup;
 			children = (
+				93B0D5B62A80CD2E005CD5D1 /* Helper */,
 				93B0D5AE2A78FD7B005CD5D1 /* Info.plist */,
 				93F01BED2A77C1AF00D57B5B /* Model */,
 				93F01BE82A77C14800D57B5B /* Component */,
@@ -156,6 +159,14 @@
 				740E80CD2A77A4CC00D92D24 /* morsenatorUITestsLaunchTests.swift */,
 			);
 			path = morsenatorUITests;
+			sourceTree = "<group>";
+		};
+		93B0D5B62A80CD2E005CD5D1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				93B0D5B72A80CD3F005CD5D1 /* Morse.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		93F01BE52A77C09E00D57B5B /* View */ = {
@@ -327,6 +338,7 @@
 				93B0D5B02A79039E005CD5D1 /* ARView.swift in Sources */,
 				93F01BEA2A77C16700D57B5B /* IconButton.swift in Sources */,
 				740E80B32A77A4CB00D92D24 /* ContentView.swift in Sources */,
+				93B0D5B82A80CD3F005CD5D1 /* Morse.swift in Sources */,
 				93F01BE72A77C0D000D57B5B /* Home.swift in Sources */,
 				740E80B12A77A4CB00D92D24 /* morsenatorApp.swift in Sources */,
 				93B0D5A92A78BE40005CD5D1 /* MenuItem.swift in Sources */,
