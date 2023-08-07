@@ -37,7 +37,20 @@ class ARViewController: UIViewController, ARSessionDelegate {
     }
 
     private var detectRemoteControl: Bool = true
-
+    
+    var viewWidth:Int = 0
+        var viewHeight:Int = 0
+    
+    var box:ModelEntity!
+    
+    var recentIndexFingerPoint:CGPoint = .zero
+    
+    lazy var request:VNRequest = {
+            var handPoseRequest = VNDetectHumanHandPoseRequest(completionHandler: handDetectionCompletionHandler)
+            handPoseRequest.maximumHandCount = 1
+            return handPoseRequest
+        }()
+    
     lazy var objectDetectionRequest: VNCoreMLRequest = {
         do {
             let model = try VNCoreMLModel(for: yolov8s().model)
@@ -58,6 +71,9 @@ class ARViewController: UIViewController, ARSessionDelegate {
 //        arView.delegate = self
 //        arView.scene = SCNScene()
         arView.debugOptions = [.showFeaturePoints, .showAnchorOrigins, .showAnchorGeometry]
+        
+        viewWidth = Int(arView.bounds.width)
+                viewHeight = Int(arView.bounds.height)
 //
 //        let node = SCNNode()
 //        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
@@ -85,6 +101,7 @@ class ARViewController: UIViewController, ARSessionDelegate {
         let configuration = ARWorldTrackingConfiguration()
         configuration.environmentTexturing = .automatic
         configuration.planeDetection = .horizontal
+        configuration.frameSemantics = [.personSegmentation]
         arView.session.run(configuration)
 
         let coachingOverlay = ARCoachingOverlayView()
@@ -102,6 +119,8 @@ class ARViewController: UIViewController, ARSessionDelegate {
         box.transform = Transform(pitch: 0, yaw: 1, roll: 0) // Rotate the box model 1 radian on the Y axis
         anchor.addChild(box) // Add a box to the child of the anchor in the hierarchy.
         arView.scene.anchors.append(anchor) // Add an anchor to arView
+
+        setupObject()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -192,29 +211,75 @@ class ARViewController: UIViewController, ARSessionDelegate {
         }
     }
 
-    func session(_: ARSession, didUpdate frame: ARFrame) {
-        // Do not enqueue other buffers for processing while another Vision task is still running.
-        // The camera stream has only a finite amount of buffers available; holding too many buffers for analysis would starve the camera.
-
-        guard currentBuffer == nil, case .normal = frame.camera.trackingState else {
-            return
-        }
-
-        // Retain the image buffer for Vision processing.
-        currentBuffer = frame.capturedImage
-
-        // Most computer vision tasks are not rotation agnostic so it is important to pass in the orientation of the image with respect to device.
-        let orientation = CGImagePropertyOrientation(rawValue: UInt32(UIDevice.current.orientation.rawValue)) ?? .leftMirrored
-
-        let requestHandler = VNImageRequestHandler(cvPixelBuffer: currentBuffer!, orientation: orientation)
-        visionQueue.async {
-            do {
-                // Release the pixel buffer when done, allowing the next buffer to be processed.
-                defer { self.currentBuffer = nil }
-                try requestHandler.perform([self.objectDetectionRequest])
-            } catch {
-                print("Error: Vision request failed with error \"\(error)\"")
+//    func session(_: ARSession, didUpdate frame: ARFrame) {
+//        // Do not enqueue other buffers for processing while another Vision task is still running.
+//        // The camera stream has only a finite amount of buffers available; holding too many buffers for analysis would starve the camera.
+//
+//        guard currentBuffer == nil, case .normal = frame.camera.trackingState else {
+//            return
+//        }
+//
+//        // Retain the image buffer for Vision processing.
+//        currentBuffer = frame.capturedImage
+//
+//        // Most computer vision tasks are not rotation agnostic so it is important to pass in the orientation of the image with respect to device.
+//        let orientation = CGImagePropertyOrientation(rawValue: UInt32(UIDevice.current.orientation.rawValue)) ?? .leftMirrored
+//
+//        let requestHandler = VNImageRequestHandler(cvPixelBuffer: currentBuffer!, orientation: orientation)
+//        visionQueue.async {
+//            do {
+//                // Release the pixel buffer when done, allowing the next buffer to be processed.
+//                defer { self.currentBuffer = nil }
+//                try requestHandler.perform([self.objectDetectionRequest])
+//            } catch {
+//                print("Error: Vision request failed with error \"\(error)\"")
+//            }
+//        }
+//    }
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+            let pixelBuffer = frame.capturedImage
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                let handler = VNImageRequestHandler(cvPixelBuffer:pixelBuffer, orientation: .up, options: [:])
+                do {
+                    try handler.perform([(self?.request)!])
+                    
+                } catch let error {
+                    print(error)
+                }
             }
         }
+    
+    func handDetectionCompletionHandler(request: VNRequest?, error: Error?) {
+        // Get the position of the tip of the index finger from the result of the request
+        guard let observation = request?.results?.first as? VNHumanHandPoseObservation else { return }
+        guard let indexFingerTip = try? observation.recognizedPoints(.all)[.indexTip],
+              indexFingerTip.confidence > 0.3 else {return}
+
+        // Since the result of Vision is normalized to 0 ~ 1, it is converted to the coordinates of ARView.
+        let normalizedIndexPoint = VNImagePointForNormalizedPoint(CGPoint(x: indexFingerTip.location.y, y: indexFingerTip.location.x), viewWidth,  viewHeight)
+
+        // Perform a hit test with the acquired coordinates of the fingertips
+        if let entity = arView.entity(at: normalizedIndexPoint) as? ModelEntity  {
+            // Apply physical force to the box object you find
+            entity.addForce([0,40,0], relativeTo: nil)
+            // To addForce, give the target entity a PhysicsBodyComponent
+        }
     }
+    
+    private func setupObject(){
+            let anchor = AnchorEntity(plane: .horizontal)
+            
+            let plane = ModelEntity(mesh: .generatePlane(width: 2, depth: 2), materials: [OcclusionMaterial()])
+            anchor.addChild(plane)
+            plane.generateCollisionShapes(recursive: false)
+            plane.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .static)
+            
+            box = ModelEntity(mesh: .generateBox(size: 0.05), materials: [SimpleMaterial(color: .white, isMetallic: true)])
+            box.generateCollisionShapes(recursive: false)
+            box.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .dynamic)
+            box.position = [0,0.025,0]
+            anchor.addChild(box)
+            arView.scene.addAnchor(anchor)
+        }
 }
