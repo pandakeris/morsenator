@@ -14,6 +14,10 @@
 		740E80C22A77A4CC00D92D24 /* morsenatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740E80C12A77A4CC00D92D24 /* morsenatorTests.swift */; };
 		740E80CC2A77A4CC00D92D24 /* morsenatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740E80CB2A77A4CC00D92D24 /* morsenatorUITests.swift */; };
 		740E80CE2A77A4CC00D92D24 /* morsenatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740E80CD2A77A4CC00D92D24 /* morsenatorUITestsLaunchTests.swift */; };
+		745642362A80E28A00C2D910 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745642322A80E28A00C2D910 /* MainView.swift */; };
+		745642372A80E28A00C2D910 /* Recognator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745642332A80E28A00C2D910 /* Recognator.swift */; };
+		745642382A80E28A00C2D910 /* ScannerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745642342A80E28A00C2D910 /* ScannerData.swift */; };
+		745642392A80E28A00C2D910 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745642352A80E28A00C2D910 /* ScannerView.swift */; };
 		93B0D5A92A78BE40005CD5D1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5A82A78BE40005CD5D1 /* MenuItem.swift */; };
 		93B0D5AB2A78F2DE005CD5D1 /* AR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */; };
 		93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */; };
@@ -58,6 +62,10 @@
 		740E80C72A77A4CC00D92D24 /* morsenatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = morsenatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		740E80CB2A77A4CC00D92D24 /* morsenatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morsenatorUITests.swift; sourceTree = "<group>"; };
 		740E80CD2A77A4CC00D92D24 /* morsenatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morsenatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		745642322A80E28A00C2D910 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		745642332A80E28A00C2D910 /* Recognator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recognator.swift; sourceTree = "<group>"; };
+		745642342A80E28A00C2D910 /* ScannerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerData.swift; sourceTree = "<group>"; };
+		745642352A80E28A00C2D910 /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		93B0D5A82A78BE40005CD5D1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AR.storyboard; sourceTree = "<group>"; };
 		93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +185,10 @@
 				740E80B42A77A4CC00D92D24 /* Assets.xcassets */,
 				93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */,
 				93B0D5AF2A79039E005CD5D1 /* ARView.swift */,
+				745642322A80E28A00C2D910 /* MainView.swift */,
+				745642332A80E28A00C2D910 /* Recognator.swift */,
+				745642342A80E28A00C2D910 /* ScannerData.swift */,
+				745642352A80E28A00C2D910 /* ScannerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,11 +353,15 @@
 				93B0D5B82A80CD3F005CD5D1 /* Morse.swift in Sources */,
 				93F01BE72A77C0D000D57B5B /* Home.swift in Sources */,
 				740E80B12A77A4CB00D92D24 /* morsenatorApp.swift in Sources */,
+				745642392A80E28A00C2D910 /* ScannerView.swift in Sources */,
 				93B0D5A92A78BE40005CD5D1 /* MenuItem.swift in Sources */,
 				93F01BF32A77C1F700D57B5B /* FancyToastView.swift in Sources */,
+				745642382A80E28A00C2D910 /* ScannerData.swift in Sources */,
 				93F01BF12A77C1DF00D57B5B /* FancyToastStyle.swift in Sources */,
 				93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */,
+				745642362A80E28A00C2D910 /* MainView.swift in Sources */,
 				93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */,
+				745642372A80E28A00C2D910 /* Recognator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
