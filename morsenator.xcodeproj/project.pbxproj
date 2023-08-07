@@ -169,6 +169,35 @@
 			path = morsenatorUITests;
 			sourceTree = "<group>";
 		};
+		7456423E2A80E94900C2D910 /* AVFoundation (ongoing) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "AVFoundation (ongoing)";
+			sourceTree = "<group>";
+		};
+		7456423F2A80E95A00C2D910 /* ARKit (ongoing) */ = {
+			isa = PBXGroup;
+			children = (
+				93F01BE62A77C0D000D57B5B /* Home.swift */,
+				93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */,
+				93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */,
+				93B0D5AF2A79039E005CD5D1 /* ARView.swift */,
+			);
+			path = "ARKit (ongoing)";
+			sourceTree = "<group>";
+		};
+		745642402A80E96500C2D910 /* Vision-VisionKit (Done) */ = {
+			isa = PBXGroup;
+			children = (
+				745642322A80E28A00C2D910 /* MainView.swift */,
+				745642332A80E28A00C2D910 /* Recognator.swift */,
+				745642342A80E28A00C2D910 /* ScannerData.swift */,
+				745642352A80E28A00C2D910 /* ScannerView.swift */,
+			);
+			path = "Vision-VisionKit (Done)";
+			sourceTree = "<group>";
+		};
 		93B0D5B62A80CD2E005CD5D1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,15 +209,10 @@
 		93F01BE52A77C09E00D57B5B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				93F01BE62A77C0D000D57B5B /* Home.swift */,
-				93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */,
+				745642402A80E96500C2D910 /* Vision-VisionKit (Done) */,
+				7456423F2A80E95A00C2D910 /* ARKit (ongoing) */,
+				7456423E2A80E94900C2D910 /* AVFoundation (ongoing) */,
 				740E80B42A77A4CC00D92D24 /* Assets.xcassets */,
-				93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */,
-				93B0D5AF2A79039E005CD5D1 /* ARView.swift */,
-				745642322A80E28A00C2D910 /* MainView.swift */,
-				745642332A80E28A00C2D910 /* Recognator.swift */,
-				745642342A80E28A00C2D910 /* ScannerData.swift */,
-				745642352A80E28A00C2D910 /* ScannerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
