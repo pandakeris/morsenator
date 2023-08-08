@@ -8,45 +8,45 @@
 import SwiftUI
 import VisionKit
 
-struct ScannerView:UIViewControllerRepresentable {
+struct ScannerView: UIViewControllerRepresentable {
     func makeCoordinator() -> Coordinate {
         return Coordinate(completion: completionHandler)
     }
-    
+
     final class Coordinate: NSObject, VNDocumentCameraViewControllerDelegate {
         private let completionHandler: ([String]?) -> Void
-        
+
         init(completion: @escaping ([String]?) -> Void) {
-            self.completionHandler = completion
+            completionHandler = completion
         }
-        func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
+
+        func documentCameraViewController(_: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
             let recognizer = Recognator(cameraScan: scan)
             recognizer.recognizing(withCompletionHandler: completionHandler)
         }
-        func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
+
+        func documentCameraViewControllerDidCancel(_: VNDocumentCameraViewController) {
             completionHandler(nil)
         }
-        
-        func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
+
+        func documentCameraViewController(_: VNDocumentCameraViewController, didFailWithError _: Error) {
             completionHandler(nil)
         }
     }
-    
+
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
         let viewController = VNDocumentCameraViewController()
         viewController.delegate = context.coordinator
         return viewController
     }
-    
-    func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {
-        
-    }
-    
+
+    func updateUIViewController(_: VNDocumentCameraViewController, context _: Context) {}
+
     typealias UIViewControllerType = VNDocumentCameraViewController
-    
+
     private let completionHandler: ([String]?) -> Void
-    
-    init(completion: @escaping ([String]?) -> Void){
-        self.completionHandler = completion
+
+    init(completion: @escaping ([String]?) -> Void) {
+        completionHandler = completion
     }
 }

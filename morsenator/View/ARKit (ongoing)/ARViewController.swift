@@ -37,20 +37,20 @@ class ARViewController: UIViewController, ARSessionDelegate {
     }
 
     private var detectRemoteControl: Bool = true
-    
-    var viewWidth:Int = 0
-        var viewHeight:Int = 0
-    
-    var box:ModelEntity!
-    
-    var recentIndexFingerPoint:CGPoint = .zero
-    
-    lazy var request:VNRequest = {
-            var handPoseRequest = VNDetectHumanHandPoseRequest(completionHandler: handDetectionCompletionHandler)
-            handPoseRequest.maximumHandCount = 1
-            return handPoseRequest
-        }()
-    
+
+    var viewWidth: Int = 0
+    var viewHeight: Int = 0
+
+    var box: ModelEntity!
+
+    var recentIndexFingerPoint: CGPoint = .zero
+
+    lazy var request: VNRequest = {
+        var handPoseRequest = VNDetectHumanHandPoseRequest(completionHandler: handDetectionCompletionHandler)
+        handPoseRequest.maximumHandCount = 1
+        return handPoseRequest
+    }()
+
     lazy var objectDetectionRequest: VNCoreMLRequest = {
         do {
             let model = try VNCoreMLModel(for: yolov8s().model)
@@ -71,9 +71,9 @@ class ARViewController: UIViewController, ARSessionDelegate {
 //        arView.delegate = self
 //        arView.scene = SCNScene()
         arView.debugOptions = [.showFeaturePoints, .showAnchorOrigins, .showAnchorGeometry]
-        
+
         viewWidth = Int(arView.bounds.width)
-                viewHeight = Int(arView.bounds.height)
+        viewHeight = Int(arView.bounds.height)
 //
 //        let node = SCNNode()
 //        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
@@ -236,50 +236,50 @@ class ARViewController: UIViewController, ARSessionDelegate {
 //            }
 //        }
 //    }
-    
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-            let pixelBuffer = frame.capturedImage
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                let handler = VNImageRequestHandler(cvPixelBuffer:pixelBuffer, orientation: .up, options: [:])
-                do {
-                    try handler.perform([(self?.request)!])
-                    
-                } catch let error {
-                    print(error)
-                }
+
+    func session(_: ARSession, didUpdate frame: ARFrame) {
+        let pixelBuffer = frame.capturedImage
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up, options: [:])
+            do {
+                try handler.perform([(self?.request)!])
+
+            } catch {
+                print(error)
             }
         }
-    
-    func handDetectionCompletionHandler(request: VNRequest?, error: Error?) {
+    }
+
+    func handDetectionCompletionHandler(request: VNRequest?, error _: Error?) {
         // Get the position of the tip of the index finger from the result of the request
         guard let observation = request?.results?.first as? VNHumanHandPoseObservation else { return }
         guard let indexFingerTip = try? observation.recognizedPoints(.all)[.indexTip],
-              indexFingerTip.confidence > 0.3 else {return}
+              indexFingerTip.confidence > 0.3 else { return }
 
         // Since the result of Vision is normalized to 0 ~ 1, it is converted to the coordinates of ARView.
-        let normalizedIndexPoint = VNImagePointForNormalizedPoint(CGPoint(x: indexFingerTip.location.y, y: indexFingerTip.location.x), viewWidth,  viewHeight)
+        let normalizedIndexPoint = VNImagePointForNormalizedPoint(CGPoint(x: indexFingerTip.location.y, y: indexFingerTip.location.x), viewWidth, viewHeight)
 
         // Perform a hit test with the acquired coordinates of the fingertips
-        if let entity = arView.entity(at: normalizedIndexPoint) as? ModelEntity  {
+        if let entity = arView.entity(at: normalizedIndexPoint) as? ModelEntity {
             // Apply physical force to the box object you find
-            entity.addForce([0,40,0], relativeTo: nil)
+            entity.addForce([10, 40, 0], relativeTo: nil)
             // To addForce, give the target entity a PhysicsBodyComponent
         }
     }
-    
-    private func setupObject(){
-            let anchor = AnchorEntity(plane: .horizontal)
-            
-            let plane = ModelEntity(mesh: .generatePlane(width: 2, depth: 2), materials: [OcclusionMaterial()])
-            anchor.addChild(plane)
-            plane.generateCollisionShapes(recursive: false)
-            plane.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .static)
-            
-            box = ModelEntity(mesh: .generateBox(size: 0.05), materials: [SimpleMaterial(color: .white, isMetallic: true)])
-            box.generateCollisionShapes(recursive: false)
-            box.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .dynamic)
-            box.position = [0,0.025,0]
-            anchor.addChild(box)
-            arView.scene.addAnchor(anchor)
-        }
+
+    private func setupObject() {
+        let anchor = AnchorEntity(plane: .horizontal)
+
+        let plane = ModelEntity(mesh: .generatePlane(width: 2, depth: 2), materials: [OcclusionMaterial()])
+        anchor.addChild(plane)
+        plane.generateCollisionShapes(recursive: false)
+        plane.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .static)
+
+        box = ModelEntity(mesh: .generateBox(size: 0.05), materials: [SimpleMaterial(color: .white, isMetallic: true)])
+        box.generateCollisionShapes(recursive: false)
+        box.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .dynamic)
+        box.position = [0, 0.025, 0]
+        anchor.addChild(box)
+        arView.scene.addAnchor(anchor)
+    }
 }
