@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct ARHome: View {
     var body: some View {
         VStack {
             ARViewControllerContainer().edgesIgnoringSafeArea(.all)
@@ -15,8 +15,8 @@ struct Home: View {
     }
 }
 
-struct Home_Previews: PreviewProvider {
+struct ARHome_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        ARHome()
     }
 }

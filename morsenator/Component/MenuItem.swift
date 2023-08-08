@@ -91,7 +91,7 @@ struct MenuItemButton: View {
 struct MenuItem_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            MenuItem(width: 60, height: 60, title: "Working Hour & Interval", image: "Clock", active: true, link: Home())
+            MenuItem(width: 60, height: 60, title: "Working Hour & Interval", image: "Clock", active: true, link: ARHome())
             MenuItemButton(width: 60, height: 60, title: "Working Hour & Interval", image: "Clock", active: false)
         }
     }
