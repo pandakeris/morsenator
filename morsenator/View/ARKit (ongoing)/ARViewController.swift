@@ -262,7 +262,7 @@ class ARViewController: UIViewController, ARSessionDelegate {
         // Perform a hit test with the acquired coordinates of the fingertips
         if let entity = arView.entity(at: normalizedIndexPoint) as? ModelEntity {
             // Apply physical force to the box object you find
-            entity.addForce([0, 40, 0], relativeTo: nil)
+            entity.addForce([10, 40, 0], relativeTo: nil)
             // To addForce, give the target entity a PhysicsBodyComponent
         }
     }

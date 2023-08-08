@@ -70,16 +70,14 @@ let MORSE_CODE_REVERSE = MORSE_CODE.swapKeyValues()
 
 func word2Morse(words: String) -> String {
     let wordArr = words.map { word -> String in
-        print(word)
-        print(words)
-        return MORSE_CODE.contains { $0.key == String(word.lowercased()) } ? MORSE_CODE[String(word.lowercased())]! : String(word)
+        MORSE_CODE.contains { $0.key == String(word.lowercased()) } ? MORSE_CODE[String(word.lowercased())]! : String(word)
     }
 
-    return wordArr.joined(separator: "")
+    return wordArr.joined(separator: " ")
 }
 
 func morse2Word(morse: String) -> String {
-    let morseArr = morse.components(separatedBy: " ").map { word -> String in
+    let morseArr = morse.components(separatedBy: [" "]).map { word -> String in
         MORSE_CODE_REVERSE.contains { $0.key == word } ? MORSE_CODE_REVERSE[word]! : ""
     }
 
