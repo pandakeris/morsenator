@@ -18,6 +18,8 @@
 		745642372A80E28A00C2D910 /* Recognator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745642332A80E28A00C2D910 /* Recognator.swift */; };
 		745642382A80E28A00C2D910 /* ScannerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745642342A80E28A00C2D910 /* ScannerData.swift */; };
 		745642392A80E28A00C2D910 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745642352A80E28A00C2D910 /* ScannerView.swift */; };
+		7471BF302A8231A5006592BF /* MorseMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7471BF2F2A8231A5006592BF /* MorseMainView.swift */; };
+		74B522112A83790700F2D57F /* morsesound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 74B522102A83790700F2D57F /* morsesound.mp3 */; };
 		93B0D5A92A78BE40005CD5D1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5A82A78BE40005CD5D1 /* MenuItem.swift */; };
 		93B0D5AB2A78F2DE005CD5D1 /* AR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */; };
 		93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */; };
@@ -67,6 +69,8 @@
 		745642332A80E28A00C2D910 /* Recognator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recognator.swift; sourceTree = "<group>"; };
 		745642342A80E28A00C2D910 /* ScannerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerData.swift; sourceTree = "<group>"; };
 		745642352A80E28A00C2D910 /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		7471BF2F2A8231A5006592BF /* MorseMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MorseMainView.swift; path = morsenator/View/MorseMainView.swift; sourceTree = SOURCE_ROOT; };
+		74B522102A83790700F2D57F /* morsesound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = morsesound.mp3; sourceTree = "<group>"; };
 		93B0D5A82A78BE40005CD5D1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AR.storyboard; sourceTree = "<group>"; };
 		93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 		7456423E2A80E94900C2D910 /* AVFoundation (ongoing) */ = {
 			isa = PBXGroup;
 			children = (
+				7471BF2F2A8231A5006592BF /* MorseMainView.swift */,
+				74B522102A83790700F2D57F /* morsesound.mp3 */,
 			);
 			path = "AVFoundation (ongoing)";
 			sourceTree = "<group>";
@@ -200,6 +206,14 @@
 			path = "Vision-VisionKit (Done)";
 			sourceTree = "<group>";
 		};
+		7471BF312A8231CD006592BF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				93B0D5B92A813975005CD5D1 /* Home.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		93B0D5B62A80CD2E005CD5D1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,11 +225,11 @@
 		93F01BE52A77C09E00D57B5B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7471BF312A8231CD006592BF /* Main */,
 				745642402A80E96500C2D910 /* Vision-VisionKit (Done) */,
 				7456423F2A80E95A00C2D910 /* ARKit (ongoing) */,
 				7456423E2A80E94900C2D910 /* AVFoundation (ongoing) */,
 				740E80B42A77A4CC00D92D24 /* Assets.xcassets */,
-				93B0D5B92A813975005CD5D1 /* Home.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +361,7 @@
 				740E80B82A77A4CC00D92D24 /* Preview Assets.xcassets in Resources */,
 				740E80B52A77A4CC00D92D24 /* Assets.xcassets in Resources */,
 				93B0D5AB2A78F2DE005CD5D1 /* AR.storyboard in Resources */,
+				74B522112A83790700F2D57F /* morsesound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +403,7 @@
 				93F01BF12A77C1DF00D57B5B /* FancyToastStyle.swift in Sources */,
 				93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */,
 				745642362A80E28A00C2D910 /* MainView.swift in Sources */,
+				7471BF302A8231A5006592BF /* MorseMainView.swift in Sources */,
 				93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */,
 				745642372A80E28A00C2D910 /* Recognator.swift in Sources */,
 			);
