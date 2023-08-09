@@ -25,6 +25,11 @@ struct Home: View {
                     } label: {
                         Label("Vision", systemImage: "questionmark.circle")
                     }.buttonStyle(MainButton(width: UIDevice.isIPad ? 400 : 200, height: UIDevice.isIPad ? 75 : 35)).font(UIDevice.isIPad ? .largeTitle : .title2).padding()
+                    NavigationLink {
+                        MorseMainView()
+                    } label: {
+                        Label("AVFoundation", systemImage: "questionmark.circle")
+                    }.buttonStyle(MainButton(width: UIDevice.isIPad ? 400 : 200, height: UIDevice.isIPad ? 75 : 35)).font(UIDevice.isIPad ? .largeTitle : .title2).padding()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity) // 1

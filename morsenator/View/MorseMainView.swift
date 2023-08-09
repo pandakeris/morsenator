@@ -5,11 +5,11 @@
 //  Created by Timothyus Kevin Dewanto on 08/08/23.
 //
 
-import SwiftUI
-import AVFoundation
 import AVFAudio
-import AVRouting
+import AVFoundation
 import AVKit
+import AVRouting
+import SwiftUI
 
 struct MorseCodeApp: App {
     var body: some Scene {
@@ -19,23 +19,25 @@ struct MorseCodeApp: App {
     }
 }
 
-//ViewOnly
+// ViewOnly
 struct MorseMainView: View {
-@State private var morseCodeInput: String = ""
-   private var morsePlayer = MorseCodePlayer()
-    
+    @State private var morseCodeInput: String = ""
+    private var morsePlayer = MorseCodePlayer()
+
     var body: some View {
         VStack {
             Text("Morse Code to Sound")
                 .font(.title)
                 .padding()
-            
+
             TextField("Enter Morse Code", text: $morseCodeInput)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocorrectionDisabled()
+                .textInputAutocapitalization(.never)
                 .padding()
-            
+
             Button(action: {
-                morsePlayer.playMorseCode(morseCodeInput)
+                morsePlayer.playMorseCode(morseCodeInput.replacingOccurrences(of: "—", with: "--").replacingOccurrences(of: "…", with: "..."))
             }) {
                 Text("Play Morse Code")
                     .padding()
@@ -48,14 +50,14 @@ struct MorseMainView: View {
     }
 }
 
-//The Whole Function
+// The Whole Function
 class MorseCodePlayer {
     let dotDuration: TimeInterval = 0.1
     let dashDuration: TimeInterval = 1.0
     let wordGapDuration: TimeInterval = 1.0
     let letterGapDuration: TimeInterval = 1.5
     var audioPlayer: AVAudioPlayer?
-    
+
     init() {
         if let soundURL = Bundle.main.url(forResource: "morsesound", withExtension: "mp3") {
             do {
@@ -66,7 +68,7 @@ class MorseCodePlayer {
             }
         }
     }
-    
+
     func playMorseCode(_ morseCode: String) {
         for character in morseCode {
             switch character {
@@ -82,13 +84,13 @@ class MorseCodePlayer {
         }
         pause(duration: wordGapDuration)
     }
-    
+
     private func playSound(duration: TimeInterval) {
         audioPlayer?.play()
         Thread.sleep(forTimeInterval: duration)
         audioPlayer?.stop()
     }
-    
+
     private func pause(duration: TimeInterval) {
         Thread.sleep(forTimeInterval: duration)
     }
