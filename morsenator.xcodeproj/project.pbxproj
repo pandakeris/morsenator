@@ -29,6 +29,8 @@
 		93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */; };
 		93B0D5B82A80CD3F005CD5D1 /* Morse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B72A80CD3F005CD5D1 /* Morse.swift */; };
 		93B0D5BA2A813975005CD5D1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B92A813975005CD5D1 /* Home.swift */; };
+		93B0D5CA2A8330EE005CD5D1 /* button_1.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 93B0D5C92A8330EE005CD5D1 /* button_1.usdz */; };
+		93B0D5CC2A833C5B005CD5D1 /* button.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 93B0D5CB2A833C5B005CD5D1 /* button.usdz */; };
 		93F01BE72A77C0D000D57B5B /* ARHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE62A77C0D000D57B5B /* ARHome.swift */; };
 		93F01BEA2A77C16700D57B5B /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE92A77C16700D57B5B /* IconButton.swift */; };
 		93F01BEC2A77C18400D57B5B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BEB2A77C18400D57B5B /* Button.swift */; };
@@ -80,6 +82,8 @@
 		93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov8s.mlmodel; sourceTree = "<group>"; };
 		93B0D5B72A80CD3F005CD5D1 /* Morse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Morse.swift; sourceTree = "<group>"; };
 		93B0D5B92A813975005CD5D1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		93B0D5C92A8330EE005CD5D1 /* button_1.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = button_1.usdz; sourceTree = "<group>"; };
+		93B0D5CB2A833C5B005CD5D1 /* button.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = button.usdz; sourceTree = "<group>"; };
 		93F01BE62A77C0D000D57B5B /* ARHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARHome.swift; sourceTree = "<group>"; };
 		93F01BE92A77C16700D57B5B /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		93F01BEB2A77C18400D57B5B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		740E80AF2A77A4CB00D92D24 /* morsenator */ = {
 			isa = PBXGroup;
 			children = (
+				93B0D5C92A8330EE005CD5D1 /* button_1.usdz */,
+				93B0D5CB2A833C5B005CD5D1 /* button.usdz */,
 				93B0D5B62A80CD2E005CD5D1 /* Helper */,
 				93B0D5AE2A78FD7B005CD5D1 /* Info.plist */,
 				93F01BED2A77C1AF00D57B5B /* Model */,
@@ -358,7 +364,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B0D5CC2A833C5B005CD5D1 /* button.usdz in Resources */,
 				740E80B82A77A4CC00D92D24 /* Preview Assets.xcassets in Resources */,
+				93B0D5CA2A8330EE005CD5D1 /* button_1.usdz in Resources */,
 				740E80B52A77A4CC00D92D24 /* Assets.xcassets in Resources */,
 				93B0D5AB2A78F2DE005CD5D1 /* AR.storyboard in Resources */,
 				74B522112A83790700F2D57F /* morsesound.mp3 in Resources */,
