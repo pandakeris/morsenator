@@ -26,16 +26,12 @@ struct ARViewIndicator: UIViewControllerRepresentable {
 }
 
 extension Entity {
-    
     func scaleAnimated(with value: SIMD3<Float>, duration: CGFloat) {
-        
-        var scaleTransform: Transform = Transform()
+        var scaleTransform = Transform()
         scaleTransform.scale = value
-        self.move(to: self.transform, relativeTo: self.parent)
-        self.move(to: scaleTransform, relativeTo: self.parent, duration: duration)
-        
+        move(to: transform, relativeTo: parent)
+        move(to: scaleTransform, relativeTo: parent, duration: duration)
     }
-    
 }
 
 class ARViewController: UIViewController, ARSessionDelegate {
@@ -50,12 +46,12 @@ class ARViewController: UIViewController, ARSessionDelegate {
     }
 
     private var detectRemoteControl: Bool = true
-    
+
     private var isTouching = false
-    
+
     private var buttonId: UInt64?
     private var buttonName: String?
-    
+
     private var buttonModel: Entity?
 
     var viewWidth: Int = 0
@@ -278,19 +274,18 @@ class ARViewController: UIViewController, ARSessionDelegate {
 
         // Since the result of Vision is normalized to 0 ~ 1, it is converted to the coordinates of ARView.
         let normalizedIndexPoint = VNImagePointForNormalizedPoint(CGPoint(x: indexFingerTip.location.y, y: indexFingerTip.location.x), viewWidth, viewHeight)
-        
+
         var buttonTouched = false
 
         // Perform a hit test with the acquired coordinates of the fingertips
         if let entities = arView.entities(at: normalizedIndexPoint) as? [ModelEntity] {
-            
             for entity in entities {
 //                let geom = entity.findEntity(named: "button2_Cylinder_001")
 //                print("GAS\(geom?.name)")
                 // Apply physical force to the box object you find
                 // entity.addForce([0, 40, 0], relativeTo: nil)
                 // To addForce, give the target entity a PhysicsBodyComponent
-                //entity.scaleAnimated(with: [0.012, 0.012, 0.012], duration: 1.0)
+                // entity.scaleAnimated(with: [0.012, 0.012, 0.012], duration: 1.0)
                 print("Entity id: \(entity.id)")
                 print(buttonId)
                 if entity.id == buttonId {
@@ -309,7 +304,7 @@ class ARViewController: UIViewController, ARSessionDelegate {
 //        else {
 //            isTouching = false
 //        }
-        
+
         if !buttonTouched {
             isTouching = false
         }
@@ -334,14 +329,14 @@ class ARViewController: UIViewController, ARSessionDelegate {
 //        box.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .dynamic)
 //        box.position = [0, 0, 0]
 //        anchor.addChild(box)
-        
+
         let usdzModel = try? Entity.load(named: "button")
         if usdzModel != nil {
             // usdzModel?.generateCollisionShapes(recursive: true)
             let physics = PhysicsBodyComponent(massProperties: .default,
-                                                         material: .default,
-                                                             mode: .dynamic)
-    
+                                               material: .default,
+                                               mode: .dynamic)
+
             let geom = usdzModel!.findEntity(named: "button2_Cylinder_001")
             print("GAS\(geom?.name)")
             // geom?.generateCollisionShapes(recursive: true)
@@ -351,21 +346,20 @@ class ARViewController: UIViewController, ARSessionDelegate {
 //            for a in usdzModel!.children {
 //                print("brooo\(a.children[0].children[0].children[1].name)")
 //            }
-            
+
             let body = geom?.visualBounds(relativeTo: nil)
-            
+
             let width = (body!.max.x) - (body!.min.x)
             let height = (body!.max.y) - (body!.min.y)
             let depth = (body!.max.z) - (body!.min.z)
-                
+
             let boxSize: SIMD3<Float> = [width, height, depth]
-            
+
             box = ModelEntity(mesh: .generateBox(size: boxSize), materials: [SimpleMaterial(color: .white.withAlphaComponent(0), isMetallic: true)])
             box.generateCollisionShapes(recursive: false)
             box.physicsBody = PhysicsBodyComponent(massProperties: .default, material: .default, mode: .dynamic)
             box.position = [0, 0, 0]
             anchor.addChild(box)
-
 
             // usdzModel?.components.set(physics)
             // geom?.components.set(physics)
@@ -374,9 +368,9 @@ class ARViewController: UIViewController, ARSessionDelegate {
             buttonName = usdzModel?.name
             buttonModel = usdzModel
         }
-        
+
         arView.scene.addAnchor(anchor)
-        
+
 //        if usdzModel != nil {
 //            for animation in usdzModel!.availableAnimations {
 //                print("Playing animations")
