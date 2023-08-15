@@ -12,8 +12,10 @@ struct ARHome: View {
 
     var body: some View {
         VStack {
-            ARViewControllerContainer().edgesIgnoringSafeArea(.all).environmentObject(arMorseModel)
-            Text(arMorseModel.morseText)
+            #if !targetEnvironment(simulator)
+                ARViewControllerContainer().edgesIgnoringSafeArea(.all).environmentObject(arMorseModel)
+                Text(arMorseModel.morseText)
+            #endif
         }
     }
 }

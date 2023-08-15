@@ -16,9 +16,15 @@ struct Home: View {
                 VStack {
                     Image("Logo")
                     NavigationLink {
-                        ARHome()
+                        #if !targetEnvironment(simulator)
+                            ARHome()
+                        #endif
                     } label: {
-                        Label("AR", systemImage: "play.circle")
+                        #if !targetEnvironment(simulator)
+                            Label("AR", systemImage: "play.circle")
+                        #else
+                            Label("AR (disabled on simulator)", systemImage: "play.circle")
+                        #endif
                     }.buttonStyle(MainButton(width: UIDevice.isIPad ? 400 : 200, height: UIDevice.isIPad ? 75 : 35)).font(UIDevice.isIPad ? .largeTitle : .title2).padding()
                     NavigationLink {
                         MainView()
