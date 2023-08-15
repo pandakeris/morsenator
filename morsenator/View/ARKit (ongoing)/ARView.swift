@@ -15,9 +15,11 @@ struct ARViewControllerContainer: UIViewControllerRepresentable {
     typealias UIViewControllerType = ARViewController
 
     @State private var timer: Timer?
+    @EnvironmentObject var arMorseModel: ARMorseModel
 
     func makeUIViewController(context _: Context) -> ARViewController {
         let viewController = ARViewController()
+        viewController.arMorseModel = arMorseModel
         return viewController
     }
 

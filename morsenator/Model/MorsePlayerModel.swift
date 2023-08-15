@@ -1,53 +1,20 @@
 //
-//  MorseMainView.swift
-//  T2S
+//  MorsePlayerModel.swift
+//  morsenator
 //
-//  Created by Timothyus Kevin Dewanto on 08/08/23.
+//  Created by Aaron Christopher Tanhar on 11/08/23.
 //
 
 import AVFAudio
 import AVFoundation
 import AVKit
 import AVRouting
+import Foundation
 import SwiftUI
 
-// ViewOnly
-struct MorseMainView: View {
-    @State private var morseCodeInput: String = ""
-    @EnvironmentObject var morsePlayerController: MorsePlayerController
-    @State private var task: Task<Void, Never>?
-
-    var body: some View {
-        VStack {
-            Text("Morse Code to Sound")
-                .font(.title)
-                .padding()
-
-            TextField("Enter Morse Code", text: $morseCodeInput)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .autocorrectionDisabled()
-                .textInputAutocapitalization(.never)
-                .padding()
-
-            Button(action: {
-                task?.cancel()
-                task = Task {
-                    await morsePlayerController.morsePlayerModel.playMorseCode(morseCodeInput.replacingOccurrences(of: "—", with: "--").replacingOccurrences(of: "…", with: "..."))
-                }
-            }) {
-                Text("Play Morse Code")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
-        }
-        .padding()
-    }
-}
-
 // The Whole Function
-class MorseCodePlayer {
+class MorsePlayerModel: ObservableObject {
+    public static var shared: MorsePlayerModel = .init()
     let dotDuration: TimeInterval = 0.2
     let dashDuration: TimeInterval = 0.5
     let wordGapDuration: TimeInterval = 1.0
@@ -109,11 +76,5 @@ class MorseCodePlayer {
     private func stop() {
         audioPlayer?.stop()
         reloadAudioPlayer()
-    }
-}
-
-struct MorseMainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MorseMainView()
     }
 }

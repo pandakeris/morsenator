@@ -31,6 +31,12 @@
 		93B0D5BA2A813975005CD5D1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B92A813975005CD5D1 /* Home.swift */; };
 		93B0D5CA2A8330EE005CD5D1 /* button_1.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 93B0D5C92A8330EE005CD5D1 /* button_1.usdz */; };
 		93B0D5CC2A833C5B005CD5D1 /* button.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 93B0D5CB2A833C5B005CD5D1 /* button.usdz */; };
+		93B0D5CE2A85553B005CD5D1 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5CD2A85553B005CD5D1 /* TimerModel.swift */; };
+		93B0D5D12A855567005CD5D1 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5D02A855567005CD5D1 /* TimerController.swift */; };
+		93B0D5D52A85E98F005CD5D1 /* MorsePlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5D42A85E98F005CD5D1 /* MorsePlayerModel.swift */; };
+		93B0D5D72A85E9EF005CD5D1 /* MorsePlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5D62A85E9EF005CD5D1 /* MorsePlayerController.swift */; };
+		93CE83722A8B37D0003729D8 /* MorseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE83712A8B37D0003729D8 /* MorseEnum.swift */; };
+		93CE83742A8B6FC2003729D8 /* ARMorseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE83732A8B6FC2003729D8 /* ARMorseModel.swift */; };
 		93F01BE72A77C0D000D57B5B /* ARHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE62A77C0D000D57B5B /* ARHome.swift */; };
 		93F01BEA2A77C16700D57B5B /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE92A77C16700D57B5B /* IconButton.swift */; };
 		93F01BEC2A77C18400D57B5B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BEB2A77C18400D57B5B /* Button.swift */; };
@@ -84,6 +90,12 @@
 		93B0D5B92A813975005CD5D1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		93B0D5C92A8330EE005CD5D1 /* button_1.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = button_1.usdz; sourceTree = "<group>"; };
 		93B0D5CB2A833C5B005CD5D1 /* button.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = button.usdz; sourceTree = "<group>"; };
+		93B0D5CD2A85553B005CD5D1 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		93B0D5D02A855567005CD5D1 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
+		93B0D5D42A85E98F005CD5D1 /* MorsePlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorsePlayerModel.swift; sourceTree = "<group>"; };
+		93B0D5D62A85E9EF005CD5D1 /* MorsePlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorsePlayerController.swift; sourceTree = "<group>"; };
+		93CE83712A8B37D0003729D8 /* MorseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseEnum.swift; sourceTree = "<group>"; };
+		93CE83732A8B6FC2003729D8 /* ARMorseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMorseModel.swift; sourceTree = "<group>"; };
 		93F01BE62A77C0D000D57B5B /* ARHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARHome.swift; sourceTree = "<group>"; };
 		93F01BE92A77C16700D57B5B /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		93F01BEB2A77C18400D57B5B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -140,6 +152,7 @@
 		740E80AF2A77A4CB00D92D24 /* morsenator */ = {
 			isa = PBXGroup;
 			children = (
+				93B0D5CF2A855559005CD5D1 /* Controller */,
 				93B0D5C92A8330EE005CD5D1 /* button_1.usdz */,
 				93B0D5CB2A833C5B005CD5D1 /* button.usdz */,
 				93B0D5B62A80CD2E005CD5D1 /* Helper */,
@@ -149,6 +162,7 @@
 				93F01BE52A77C09E00D57B5B /* View */,
 				740E80B02A77A4CB00D92D24 /* morsenatorApp.swift */,
 				740E80B22A77A4CB00D92D24 /* ContentView.swift */,
+				740E80B42A77A4CC00D92D24 /* Assets.xcassets */,
 				93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */,
 				93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */,
 				740E80B62A77A4CC00D92D24 /* Preview Content */,
@@ -228,6 +242,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		93B0D5CF2A855559005CD5D1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				93B0D5D02A855567005CD5D1 /* TimerController.swift */,
+				93B0D5D62A85E9EF005CD5D1 /* MorsePlayerController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		93F01BE52A77C09E00D57B5B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,7 +258,6 @@
 				745642402A80E96500C2D910 /* Vision-VisionKit (Done) */,
 				7456423F2A80E95A00C2D910 /* ARKit (ongoing) */,
 				7456423E2A80E94900C2D910 /* AVFoundation (ongoing) */,
-				740E80B42A77A4CC00D92D24 /* Assets.xcassets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +278,10 @@
 			isa = PBXGroup;
 			children = (
 				93F01BEE2A77C1C500D57B5B /* FancyToast.swift */,
+				93B0D5CD2A85553B005CD5D1 /* TimerModel.swift */,
+				93B0D5D42A85E98F005CD5D1 /* MorsePlayerModel.swift */,
+				93CE83712A8B37D0003729D8 /* MorseEnum.swift */,
+				93CE83732A8B6FC2003729D8 /* ARMorseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -395,23 +421,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				93B0D5B32A7A6363005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
+				93B0D5D52A85E98F005CD5D1 /* MorsePlayerModel.swift in Sources */,
 				93F01BEC2A77C18400D57B5B /* Button.swift in Sources */,
 				93F01BEF2A77C1C500D57B5B /* FancyToast.swift in Sources */,
 				93B0D5B02A79039E005CD5D1 /* ARView.swift in Sources */,
 				93F01BEA2A77C16700D57B5B /* IconButton.swift in Sources */,
 				740E80B32A77A4CB00D92D24 /* ContentView.swift in Sources */,
+				93CE83722A8B37D0003729D8 /* MorseEnum.swift in Sources */,
 				93B0D5B82A80CD3F005CD5D1 /* Morse.swift in Sources */,
+				93CE83742A8B6FC2003729D8 /* ARMorseModel.swift in Sources */,
 				93F01BE72A77C0D000D57B5B /* ARHome.swift in Sources */,
 				740E80B12A77A4CB00D92D24 /* morsenatorApp.swift in Sources */,
 				93B0D5BA2A813975005CD5D1 /* Home.swift in Sources */,
 				745642392A80E28A00C2D910 /* ScannerView.swift in Sources */,
 				93B0D5A92A78BE40005CD5D1 /* MenuItem.swift in Sources */,
 				93F01BF32A77C1F700D57B5B /* FancyToastView.swift in Sources */,
+				93B0D5D12A855567005CD5D1 /* TimerController.swift in Sources */,
 				745642382A80E28A00C2D910 /* ScannerData.swift in Sources */,
 				93F01BF12A77C1DF00D57B5B /* FancyToastStyle.swift in Sources */,
 				93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */,
 				745642362A80E28A00C2D910 /* MainView.swift in Sources */,
 				7471BF302A8231A5006592BF /* MorseMainView.swift in Sources */,
+				93B0D5CE2A85553B005CD5D1 /* TimerModel.swift in Sources */,
+				93B0D5D72A85E9EF005CD5D1 /* MorsePlayerController.swift in Sources */,
 				93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */,
 				745642372A80E28A00C2D910 /* Recognator.swift in Sources */,
 			);
@@ -570,6 +602,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"morsenator/Preview Content\"";
@@ -601,6 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"morsenator/Preview Content\"";

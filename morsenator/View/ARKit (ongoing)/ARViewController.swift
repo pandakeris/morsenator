@@ -34,10 +34,18 @@ extension Entity {
     }
 }
 
+func getCurrentMillis() -> Int {
+    Int(Date().timeIntervalSince1970 * 1000)
+}
+
 class ARViewController: UIViewController, ARSessionDelegate {
     private var arView: ARView!
 
     var currentBuffer: CVPixelBuffer?
+
+    var text = ""
+
+    var arMorseModel: ARMorseModel?
 
     let visionQueue = DispatchQueue(label: "morsenator.visionqueue")
 
@@ -57,9 +65,19 @@ class ARViewController: UIViewController, ARSessionDelegate {
     var viewWidth: Int = 0
     var viewHeight: Int = 0
 
+    private let dotDuration = 100 ... 500
+    private let dashDuration = 500 ... 1000
+    private let wordGapDuration = 500 ... 1500
+    private let letterGapDuration = 1500 ... 3000
+
     var box: ModelEntity!
 
     var recentIndexFingerPoint: CGPoint = .zero
+
+    private var timer: Timer?
+    private var timerCurrentCount = 0
+
+    private var lastStateChange = getCurrentMillis()
 
     lazy var request: VNRequest = {
         var handPoseRequest = VNDetectHumanHandPoseRequest(completionHandler: handDetectionCompletionHandler)
@@ -95,7 +113,18 @@ class ARViewController: UIViewController, ARSessionDelegate {
 //        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
 //        node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
 //        arView.scene.rootNode.addChildNode(node)
+
+//        self.timer = Timer.scheduledTimer(timeInterval: 0.01,
+//              target: self,
+//              selector: #selector(handleTimerExecution),
+//              userInfo: nil,
+//              repeats: true
+//        )
     }
+
+//    @objc private func handleTimerExecution() {
+//        timerCurrentCount += 1
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -142,6 +171,7 @@ class ARViewController: UIViewController, ARSessionDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         arView.session.pause()
+        timer?.invalidate()
     }
 
     private func resetTracking() {
@@ -266,6 +296,37 @@ class ARViewController: UIViewController, ARSessionDelegate {
         }
     }
 
+    func processStateChange(_ prevState: ButtonMode) -> Int {
+        let timeDiff = getCurrentMillis() - lastStateChange
+        // TODO: what happens after button is pressed
+        print("Hei")
+        print(arMorseModel?.morseText)
+        if prevState == .Release {
+            if dotDuration.contains(timeDiff) {
+                if arMorseModel != nil {
+                    arMorseModel!.morseText += "."
+                }
+            } else if dashDuration.contains(timeDiff) {
+                if arMorseModel != nil {
+                    arMorseModel!.morseText += "-"
+                }
+            }
+        } else if prevState == .Hold {
+            if letterGapDuration.contains(timeDiff) {
+                if arMorseModel != nil {
+                    arMorseModel!.morseText += " "
+                }
+            } else if wordGapDuration.contains(timeDiff) {
+                if arMorseModel != nil {
+                    arMorseModel!.morseText += "   "
+                }
+            }
+        }
+        arMorseModel?.objectWillChange.send()
+        lastStateChange = getCurrentMillis()
+        return timeDiff
+    }
+
     func handDetectionCompletionHandler(request: VNRequest?, error _: Error?) {
         // Get the position of the tip of the index finger from the result of the request
         guard let observation = request?.results?.first as? VNHumanHandPoseObservation else { return }
@@ -296,7 +357,11 @@ class ARViewController: UIViewController, ARSessionDelegate {
                             buttonModel!.playAnimation(animation.repeat(count: 1))
                             // usdzModel?.stopAllAnimations()
                         }
-                        isTouching = true
+                        if !isTouching {
+                            isTouching = true
+                            let timeDiff = processStateChange(.Hold)
+                        }
+                        // TODO: what happens after button is pressed
                     }
                 }
             }
@@ -306,7 +371,11 @@ class ARViewController: UIViewController, ARSessionDelegate {
 //        }
 
         if !buttonTouched {
-            isTouching = false
+            if isTouching {
+                isTouching = false
+                let timeDiff = processStateChange(.Release)
+            }
+            // TODO: what happens after button is released
         }
 
         if !isTouching {

@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ARHome: View {
+    @EnvironmentObject var arMorseModel: ARMorseModel
+
     var body: some View {
         VStack {
-            ARViewControllerContainer().edgesIgnoringSafeArea(.all)
+            ARViewControllerContainer().edgesIgnoringSafeArea(.all).environmentObject(arMorseModel)
+            Text(arMorseModel.morseText)
         }
     }
 }
