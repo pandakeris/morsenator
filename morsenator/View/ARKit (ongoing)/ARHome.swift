@@ -15,7 +15,10 @@ struct ARHome: View {
             #if !targetEnvironment(simulator)
                 ARViewControllerContainer().edgesIgnoringSafeArea(.all).environmentObject(arMorseModel)
                 Text(arMorseModel.morseText)
+                Text(arMorseModel.text)
             #endif
+        }.onChange(of: arMorseModel.morseText) { newValue in
+            arMorseModel.text = morse2Words(morse: newValue)
         }
     }
 }

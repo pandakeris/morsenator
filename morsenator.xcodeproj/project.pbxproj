@@ -24,8 +24,6 @@
 		93B0D5AB2A78F2DE005CD5D1 /* AR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */; };
 		93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */; };
 		93B0D5B02A79039E005CD5D1 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5AF2A79039E005CD5D1 /* ARView.swift */; };
-		93B0D5B22A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */; };
-		93B0D5B32A7A6363005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */; };
 		93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */; };
 		93B0D5B82A80CD3F005CD5D1 /* Morse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B72A80CD3F005CD5D1 /* Morse.swift */; };
 		93B0D5BA2A813975005CD5D1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5B92A813975005CD5D1 /* Home.swift */; };
@@ -37,6 +35,7 @@
 		93B0D5D72A85E9EF005CD5D1 /* MorsePlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5D62A85E9EF005CD5D1 /* MorsePlayerController.swift */; };
 		93CE83722A8B37D0003729D8 /* MorseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE83712A8B37D0003729D8 /* MorseEnum.swift */; };
 		93CE83742A8B6FC2003729D8 /* ARMorseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE83732A8B6FC2003729D8 /* ARMorseModel.swift */; };
+		93CE83762A8CA9F2003729D8 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE83752A8CA9F2003729D8 /* Motion.swift */; };
 		93F01BE72A77C0D000D57B5B /* ARHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE62A77C0D000D57B5B /* ARHome.swift */; };
 		93F01BEA2A77C16700D57B5B /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BE92A77C16700D57B5B /* IconButton.swift */; };
 		93F01BEC2A77C18400D57B5B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F01BEB2A77C18400D57B5B /* Button.swift */; };
@@ -84,7 +83,6 @@
 		93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		93B0D5AE2A78FD7B005CD5D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		93B0D5AF2A79039E005CD5D1 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
-		93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3TinyInt8LUT.mlmodel; sourceTree = "<group>"; };
 		93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov8s.mlmodel; sourceTree = "<group>"; };
 		93B0D5B72A80CD3F005CD5D1 /* Morse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Morse.swift; sourceTree = "<group>"; };
 		93B0D5B92A813975005CD5D1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -96,6 +94,7 @@
 		93B0D5D62A85E9EF005CD5D1 /* MorsePlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorsePlayerController.swift; sourceTree = "<group>"; };
 		93CE83712A8B37D0003729D8 /* MorseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseEnum.swift; sourceTree = "<group>"; };
 		93CE83732A8B6FC2003729D8 /* ARMorseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMorseModel.swift; sourceTree = "<group>"; };
+		93CE83752A8CA9F2003729D8 /* Motion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
 		93F01BE62A77C0D000D57B5B /* ARHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARHome.swift; sourceTree = "<group>"; };
 		93F01BE92A77C16700D57B5B /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		93F01BEB2A77C18400D57B5B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -164,7 +163,6 @@
 				740E80B22A77A4CB00D92D24 /* ContentView.swift */,
 				740E80B42A77A4CC00D92D24 /* Assets.xcassets */,
 				93B0D5B42A7D0D3B005CD5D1 /* yolov8s.mlmodel */,
-				93B0D5B12A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel */,
 				740E80B62A77A4CC00D92D24 /* Preview Content */,
 			);
 			path = morsenator;
@@ -282,6 +280,7 @@
 				93B0D5D42A85E98F005CD5D1 /* MorsePlayerModel.swift */,
 				93CE83712A8B37D0003729D8 /* MorseEnum.swift */,
 				93CE83732A8B6FC2003729D8 /* ARMorseModel.swift */,
+				93CE83752A8CA9F2003729D8 /* Motion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -420,7 +419,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93B0D5B32A7A6363005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 				93B0D5D52A85E98F005CD5D1 /* MorsePlayerModel.swift in Sources */,
 				93F01BEC2A77C18400D57B5B /* Button.swift in Sources */,
 				93F01BEF2A77C1C500D57B5B /* FancyToast.swift in Sources */,
@@ -438,6 +436,7 @@
 				93F01BF32A77C1F700D57B5B /* FancyToastView.swift in Sources */,
 				93B0D5D12A855567005CD5D1 /* TimerController.swift in Sources */,
 				745642382A80E28A00C2D910 /* ScannerData.swift in Sources */,
+				93CE83762A8CA9F2003729D8 /* Motion.swift in Sources */,
 				93F01BF12A77C1DF00D57B5B /* FancyToastStyle.swift in Sources */,
 				93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */,
 				745642362A80E28A00C2D910 /* MainView.swift in Sources */,
@@ -463,7 +462,6 @@
 			files = (
 				740E80CE2A77A4CC00D92D24 /* morsenatorUITestsLaunchTests.swift in Sources */,
 				740E80CC2A77A4CC00D92D24 /* morsenatorUITests.swift in Sources */,
-				93B0D5B22A7A612E005CD5D1 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
