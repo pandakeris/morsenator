@@ -40,7 +40,7 @@ struct Home: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity) // 1
             .background(
-                LinearGradient(colors: [Color("Blue"), .yellow], startPoint: animateGradient ? .topLeading : .bottomLeading, endPoint: animateGradient ? .bottomTrailing : .topTrailing)
+                LinearGradient(colors: [.black, .green], startPoint: animateGradient ? .topLeading : .bottomLeading, endPoint: animateGradient ? .bottomTrailing : .topTrailing)
                     .ignoresSafeArea()
                     .hueRotation(.degrees(animateGradient ? 45 : 0))
                     .onAppear {
