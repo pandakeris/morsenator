@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ARHome: View {
     @EnvironmentObject var arMorseModel: ARMorseModel
+    @EnvironmentObject var speechController: SpeechController
 
     var body: some View {
         VStack {
@@ -16,6 +17,11 @@ struct ARHome: View {
                 ARViewControllerContainer().edgesIgnoringSafeArea(.all).environmentObject(arMorseModel)
                 Text(arMorseModel.morseText)
                 Text(arMorseModel.text)
+            Button {
+                speechController.playSpeech(text: arMorseModel.text)
+            } label: {
+                Label("Play", systemImage: "play.circle")
+            }
             #endif
         }.onChange(of: arMorseModel.morseText) { newValue in
             arMorseModel.text = morse2Words(morse: newValue)

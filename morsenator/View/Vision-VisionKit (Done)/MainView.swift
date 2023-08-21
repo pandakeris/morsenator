@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     @State private var showScannerPage = false
     @State private var areatext: [ScannerData] = []
+    @EnvironmentObject var speechController: SpeechController
     @State private var morseCode = ""
 
     var body: some View {

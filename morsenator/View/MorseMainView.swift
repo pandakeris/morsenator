@@ -15,6 +15,7 @@ import SwiftUI
 struct MorseMainView: View {
     @State private var morseCodeInput: String = ""
     @EnvironmentObject var morsePlayerController: MorsePlayerController
+    @EnvironmentObject var speechController: SpeechController
     @State private var task: Task<Void, Never>?
 
     var body: some View {
@@ -35,6 +36,15 @@ struct MorseMainView: View {
                     await morsePlayerController.morsePlayerModel.playMorseCode(morseCodeInput.replacingOccurrences(of: "—", with: "--").replacingOccurrences(of: "…", with: "..."))
                 }
             }) {
+                Text("Play Morse Code")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            Button {
+                speechController.playSpeech(text: morse2Words(morse: morseCodeInput.replacingOccurrences(of: "—", with: "--").replacingOccurrences(of: "…", with: "...")) )
+            } label: {
                 Text("Play Morse Code")
                     .padding()
                     .foregroundColor(.white)
