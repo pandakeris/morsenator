@@ -21,6 +21,7 @@ extension UIDevice {
 struct morsenatorApp: App {
     @StateObject var timerController = TimerController()
     @StateObject var morsePlayerController = MorsePlayerController()
+    @StateObject var speechController = SpeechController()
     @StateObject var arMorseModel = ARMorseModel()
 
     var body: some Scene {
@@ -29,6 +30,7 @@ struct morsenatorApp: App {
                 .environmentObject(timerController)
                 .environmentObject(morsePlayerController)
                 .environmentObject(arMorseModel)
+                .environmentObject(speechController)
         }
     }
 }

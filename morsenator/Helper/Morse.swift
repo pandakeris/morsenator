@@ -76,7 +76,8 @@ func word2Morse(words: String) -> String {
     return wordArr.joined(separator: " ")
 }
 
-func morse2Word(morse: String) -> String {
+func morse2Word(_ rawMorse: String) -> String {
+    let morse = rawMorse.replacingOccurrences(of: "—", with: "--").replacingOccurrences(of: "…", with: "...")
     let morseArr = morse.components(separatedBy: [" "]).map { word -> String in
         MORSE_CODE_REVERSE.contains { $0.key == word } ? MORSE_CODE_REVERSE[word]! : ""
     }
@@ -86,7 +87,7 @@ func morse2Word(morse: String) -> String {
 
 func morse2Words(morse: String) -> String {
     let morseArr = morse.components(separatedBy: "   ").map { word -> String in
-        morse2Word(morse: word)
+        morse2Word(word)
     }
 
     return morseArr.joined(separator: " ")
