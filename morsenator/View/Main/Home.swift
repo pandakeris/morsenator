@@ -5,16 +5,28 @@
 //  Created by Aaron Christopher Tanhar on 07/08/23.
 //
 
+import CoreHaptics
 import SwiftUI
 
 struct Home: View {
     @State private var animateGradient = false
+    @EnvironmentObject var motionModel: MotionModel
+    @EnvironmentObject var timerController: TimerController
+    @State private var roll = false
+    @State private var pitch = false
+    @State private var animatePosition = false
+
+    let maxRad = 3.14159
+
+    func updateMotion() {
+        roll = motionModel.getAttitude()?.roll ?? 0 > 0
+        pitch = motionModel.getAttitude()?.pitch ?? 0 > 0
+    }
 
     var body: some View {
         NavigationView {
             VStack {
                 VStack {
-                    Image("Logo")
                     NavigationLink {
                         #if !targetEnvironment(simulator)
                             ARHome()
@@ -40,7 +52,7 @@ struct Home: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity) // 1
             .background(
-                LinearGradient(colors: [.black, .green], startPoint: animateGradient ? .topLeading : .bottomLeading, endPoint: animateGradient ? .bottomTrailing : .topTrailing)
+                LinearGradient(colors: [.black, .green], startPoint: animatePosition ? .topLeading : .bottomLeading, endPoint: animatePosition ? .bottomTrailing : .topTrailing)
                     .ignoresSafeArea()
                     .hueRotation(.degrees(animateGradient ? 45 : 0))
                     .onAppear {
@@ -50,6 +62,21 @@ struct Home: View {
                     }
             )
         }.navigationViewStyle(StackNavigationViewStyle())
+            .onAppear {
+                motionModel.startUpdates()
+                timerController.setTimer(key: "statTimer", withInterval: 0.1) {
+                    let oldPitch = pitch
+                    updateMotion()
+                    if pitch != oldPitch {
+                        withAnimation(.linear(duration: 2.0)) {
+                            animatePosition.toggle()
+                        }
+                    }
+                }
+            }
+            .onDisappear {
+                motionModel.stopUpdates()
+            }
     }
 }
 

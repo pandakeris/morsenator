@@ -5,19 +5,19 @@
 //  Created by Aaron Christopher Tanhar on 21/08/23.
 //
 
-import Foundation
-import SwiftUI
 import AVFoundation
+import Foundation
 import NaturalLanguage
+import SwiftUI
 
 class SpeechController: ObservableObject {
     let synthesizer = AVSpeechSynthesizer()
-    
-    func playSpeech(text: String) {
+
+    func playSpeech(text: String, lang: String = "en-US") {
         print(text)
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.voice = AVSpeechSynthesisVoice(language: lang)
 
-        self.synthesizer.speak(utterance)
+        synthesizer.speak(utterance)
     }
 }

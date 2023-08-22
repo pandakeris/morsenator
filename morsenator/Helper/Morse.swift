@@ -68,6 +68,11 @@ let MORSE_CODE = [
 
 let MORSE_CODE_REVERSE = MORSE_CODE.swapKeyValues()
 
+func isMorse(_ rawText: String) -> Bool {
+    let text = rawText.replacingOccurrences(of: "—", with: "--").replacingOccurrences(of: "…", with: "...")
+    return text.range(of: "^[-. ]*$", options: .regularExpression) != nil
+}
+
 func word2Morse(words: String) -> String {
     let wordArr = words.map { word -> String in
         MORSE_CODE.contains { $0.key == String(word.lowercased()) } ? MORSE_CODE[String(word.lowercased())]! : String(word)
