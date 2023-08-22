@@ -10,6 +10,7 @@ import AVFoundation
 import AVKit
 import AVRouting
 import Combine
+import StoreKit
 import SwiftUI
 
 // ViewOnly
@@ -19,6 +20,7 @@ struct MorseMainView: View {
     }
 
     @State private var morseCodeInput: String = ""
+    @Environment(\.requestReview) var requestReview
     @State private var textInput: String = ""
     @FocusState private var focusedField: FocusedField?
     @EnvironmentObject var morsePlayerController: MorsePlayerController
@@ -27,6 +29,7 @@ struct MorseMainView: View {
     @EnvironmentObject var nlController: NLController
     @State private var task: Task<Void, Never>?
     @State private var isCopied: Bool = false
+    @State private var translateCount = 0
 
     var body: some View {
         VStack {
@@ -109,6 +112,7 @@ struct MorseMainView: View {
                 task = Task {
                     await morsePlayerController.morsePlayerModel.playMorseCode(morseCodeInput.replacingOccurrences(of: "—", with: "--").replacingOccurrences(of: "…", with: "..."))
                 }
+                translateCount += 1
             }) {
                 Text("Play Morse Code")
                     .padding()
@@ -118,6 +122,7 @@ struct MorseMainView: View {
             }
             Button {
                 speechController.playSpeech(text: morse2Words(morse: morseCodeInput.replacingOccurrences(of: "—", with: "--").replacingOccurrences(of: "…", with: "...")), lang: nlController.recognizeLanguage(textInput)?.rawValue ?? "en-US")
+                translateCount += 1
             } label: {
                 Text("Play Text")
                     .padding()
@@ -128,6 +133,11 @@ struct MorseMainView: View {
             Text(nlController.recognizeLanguage(textInput)?.rawValue ?? "")
         }
         .padding()
+        .onChange(of: translateCount) { newValue in
+            if newValue % 4 == 3 {
+                requestReview()
+            }
+        }
     }
 }
 

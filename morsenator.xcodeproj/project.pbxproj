@@ -24,6 +24,9 @@
 		938BDEE52A9293330015C901 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEE42A9293330015C901 /* SpeechController.swift */; };
 		938BDEE72A93EA420015C901 /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEE62A93EA420015C901 /* HapticController.swift */; };
 		938BDEE92A9451EC0015C901 /* NaturalLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEE82A9451EC0015C901 /* NaturalLanguageController.swift */; };
+		938BDEEB2A9513180015C901 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEEA2A9513180015C901 /* DataController.swift */; };
+		938BDEED2A9514EE0015C901 /* MorseOCRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEEC2A9514EE0015C901 /* MorseOCRModel.swift */; };
+		938BDEF02A9516940015C901 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEEE2A9516940015C901 /* Model.xcdatamodeld */; };
 		93B0D5A92A78BE40005CD5D1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5A82A78BE40005CD5D1 /* MenuItem.swift */; };
 		93B0D5AB2A78F2DE005CD5D1 /* AR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */; };
 		93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */; };
@@ -86,6 +89,9 @@
 		938BDEE42A9293330015C901 /* SpeechController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 		938BDEE62A93EA420015C901 /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
 		938BDEE82A9451EC0015C901 /* NaturalLanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalLanguageController.swift; sourceTree = "<group>"; };
+		938BDEEA2A9513180015C901 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		938BDEEC2A9514EE0015C901 /* MorseOCRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseOCRModel.swift; sourceTree = "<group>"; };
+		938BDEEF2A9516940015C901 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		93B0D5A82A78BE40005CD5D1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		93B0D5AA2A78F2DE005CD5D1 /* AR.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AR.storyboard; sourceTree = "<group>"; };
 		93B0D5AC2A78F82D005CD5D1 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +270,7 @@
 				938BDEE42A9293330015C901 /* SpeechController.swift */,
 				938BDEE62A93EA420015C901 /* HapticController.swift */,
 				938BDEE82A9451EC0015C901 /* NaturalLanguageController.swift */,
+				938BDEEA2A9513180015C901 /* DataController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,6 +308,8 @@
 				93CE83712A8B37D0003729D8 /* MorseEnum.swift */,
 				93CE83732A8B6FC2003729D8 /* ARMorseModel.swift */,
 				93CE83752A8CA9F2003729D8 /* Motion.swift */,
+				938BDEEC2A9514EE0015C901 /* MorseOCRModel.swift */,
+				938BDEEE2A9516940015C901 /* Model.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -448,6 +457,7 @@
 				93F01BEA2A77C16700D57B5B /* IconButton.swift in Sources */,
 				740E80B32A77A4CB00D92D24 /* ContentView.swift in Sources */,
 				93CE83722A8B37D0003729D8 /* MorseEnum.swift in Sources */,
+				938BDEED2A9514EE0015C901 /* MorseOCRModel.swift in Sources */,
 				93B0D5B82A80CD3F005CD5D1 /* Morse.swift in Sources */,
 				93CE83742A8B6FC2003729D8 /* ARMorseModel.swift in Sources */,
 				93F01BE72A77C0D000D57B5B /* ARHome.swift in Sources */,
@@ -458,12 +468,14 @@
 				93B0D5A92A78BE40005CD5D1 /* MenuItem.swift in Sources */,
 				93F01BF32A77C1F700D57B5B /* FancyToastView.swift in Sources */,
 				93B0D5D12A855567005CD5D1 /* TimerController.swift in Sources */,
+				938BDEF02A9516940015C901 /* Model.xcdatamodeld in Sources */,
 				745642382A80E28A00C2D910 /* ScannerData.swift in Sources */,
 				93CE83762A8CA9F2003729D8 /* Motion.swift in Sources */,
 				93F01BF12A77C1DF00D57B5B /* FancyToastStyle.swift in Sources */,
 				93B0D5B52A7D0D3B005CD5D1 /* yolov8s.mlmodel in Sources */,
 				745642362A80E28A00C2D910 /* MainView.swift in Sources */,
 				7471BF302A8231A5006592BF /* MorseMainView.swift in Sources */,
+				938BDEEB2A9513180015C901 /* DataController.swift in Sources */,
 				93B0D5CE2A85553B005CD5D1 /* TimerModel.swift in Sources */,
 				93B0D5D72A85E9EF005CD5D1 /* MorsePlayerController.swift in Sources */,
 				93B0D5AD2A78F82D005CD5D1 /* ARViewController.swift in Sources */,
@@ -799,6 +811,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		938BDEEE2A9516940015C901 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				938BDEEF2A9516940015C901 /* Model.xcdatamodel */,
+			);
+			currentVersion = 938BDEEF2A9516940015C901 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 740E80A52A77A4CB00D92D24 /* Project object */;
 }

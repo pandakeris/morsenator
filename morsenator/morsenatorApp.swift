@@ -19,13 +19,14 @@ extension UIDevice {
 
 @main
 struct morsenatorApp: App {
-    @StateObject var timerController = TimerController()
-    @StateObject var morsePlayerController = MorsePlayerController()
-    @StateObject var speechController = SpeechController()
-    @StateObject var arMorseModel = ARMorseModel()
-    @StateObject var motionModel = MotionModel()
-    @StateObject var hapticController = HapticController()
-    @StateObject var nlController = NLController()
+    @StateObject private var timerController = TimerController()
+    @StateObject private var morsePlayerController = MorsePlayerController()
+    @StateObject private var speechController = SpeechController()
+    @StateObject private var arMorseModel = ARMorseModel()
+    @StateObject private var motionModel = MotionModel()
+    @StateObject private var hapticController = HapticController()
+    @StateObject private var nlController = NLController()
+    @StateObject private var dataController = DataController()
 
     var body: some Scene {
         WindowGroup {
@@ -37,6 +38,7 @@ struct morsenatorApp: App {
                 .environmentObject(motionModel)
                 .environmentObject(hapticController)
                 .environmentObject(nlController)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
