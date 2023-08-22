@@ -15,6 +15,7 @@ import SwiftUI
 // The Whole Function
 class MorsePlayerModel: ObservableObject {
     public static var shared: MorsePlayerModel = .init()
+    var hapticController: HapticController = .init()
     let dotDuration: TimeInterval = 0.2
     let dashDuration: TimeInterval = 0.5
     let wordGapDuration: TimeInterval = 1.0
@@ -64,6 +65,7 @@ class MorsePlayerModel: ObservableObject {
 
     private func playSound(duration: TimeInterval) async {
         audioPlayer?.play()
+        hapticController.vibrate(duration: duration)
         try? await Task.sleep(nanoseconds: UInt64(duration * 1_000_000_000))
         audioPlayer?.stop()
         reloadAudioPlayer()

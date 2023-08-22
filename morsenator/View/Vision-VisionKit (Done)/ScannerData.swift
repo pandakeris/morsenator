@@ -14,4 +14,3 @@ struct ScannerData: Identifiable {
         self.content = content
     }
 }
-

@@ -8,7 +8,7 @@
 import CoreMotion
 import Foundation
 
-class HomeViewModel: ObservableObject {
+class MotionModel: ObservableObject {
     @Published var accelerationValue: String = ""
     @Published var gravityValue: String = ""
     @Published var rotationValue: String = ""
@@ -20,6 +20,7 @@ class HomeViewModel: ObservableObject {
     private var userAcceleration: CMAcceleration = .init()
     private var gravity: CMAcceleration = .init()
     private var rotationRate: CMRotationRate = .init()
+    private var attitude: CMAttitude?
 
     init() {
         // Set the update interval to any time that you want
@@ -59,6 +60,7 @@ class HomeViewModel: ObservableObject {
             // Get user acceleration and gravity data
             userAcceleration = motion.userAcceleration
             gravity = motion.gravity
+            attitude = motion.attitude
             // Update publishers with the new sensor data
             accelerationValue = "X: \(userAcceleration.x), \n Y: \(userAcceleration.y), \n Z: \(userAcceleration.z)"
             gravityValue = "X: \(gravity.x), \n Y: \(gravity.y), \n Z: \(gravity.z)"
@@ -72,6 +74,18 @@ class HomeViewModel: ObservableObject {
             // Update publisher with the new sensor data
             rotationValue = "X: \(rotationRate.x), \n Y: \(rotationRate.y), \n Z: \(rotationRate.z)"
         }
+    }
+
+    func getRotationRate() -> CMRotationRate {
+        rotationRate
+    }
+
+    func getAcceleration() -> CMAcceleration {
+        userAcceleration
+    }
+
+    func getAttitude() -> CMAttitude? {
+        attitude
     }
 
     // Function responsible for stopping the sensor updates

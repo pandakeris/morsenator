@@ -23,6 +23,9 @@ struct morsenatorApp: App {
     @StateObject var morsePlayerController = MorsePlayerController()
     @StateObject var speechController = SpeechController()
     @StateObject var arMorseModel = ARMorseModel()
+    @StateObject var motionModel = MotionModel()
+    @StateObject var hapticController = HapticController()
+    @StateObject var nlController = NLController()
 
     var body: some Scene {
         WindowGroup {
@@ -31,6 +34,9 @@ struct morsenatorApp: App {
                 .environmentObject(morsePlayerController)
                 .environmentObject(arMorseModel)
                 .environmentObject(speechController)
+                .environmentObject(motionModel)
+                .environmentObject(hapticController)
+                .environmentObject(nlController)
         }
     }
 }
