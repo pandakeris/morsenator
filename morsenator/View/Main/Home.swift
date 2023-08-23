@@ -27,6 +27,7 @@ struct Home: View {
         NavigationView {
             VStack {
                 VStack {
+                    Image("Logo").resizable().frame(width: 200, height: 200)
                     NavigationLink {
                         #if !targetEnvironment(simulator)
                             ARHome()
@@ -41,12 +42,17 @@ struct Home: View {
                     NavigationLink {
                         MainView()
                     } label: {
-                        Label("Vision", systemImage: "questionmark.circle")
+                        Label("Vision", systemImage: "eye.circle")
                     }.buttonStyle(MainButton(width: UIDevice.isIPad ? 400 : 200, height: UIDevice.isIPad ? 75 : 35)).font(UIDevice.isIPad ? .largeTitle : .title2).padding()
                     NavigationLink {
                         MorseMainView()
                     } label: {
-                        Label("AVFoundation", systemImage: "questionmark.circle")
+                        Label("AVFoundation", systemImage: "speaker.wave.2.circle")
+                    }.buttonStyle(MainButton(width: UIDevice.isIPad ? 400 : 200, height: UIDevice.isIPad ? 75 : 35)).font(UIDevice.isIPad ? .largeTitle : .title2).padding()
+                    NavigationLink {
+                        WebView(url: URL(string: "https://www.aaronct.dev/product/morsenator")!).navigationTitle("About")
+                    } label: {
+                        Label("About", systemImage: "questionmark.circle")
                     }.buttonStyle(MainButton(width: UIDevice.isIPad ? 400 : 200, height: UIDevice.isIPad ? 75 : 35)).font(UIDevice.isIPad ? .largeTitle : .title2).padding()
                 }
             }
