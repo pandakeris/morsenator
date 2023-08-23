@@ -21,6 +21,7 @@
 		7471BF302A8231A5006592BF /* MorseMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7471BF2F2A8231A5006592BF /* MorseMainView.swift */; };
 		7491A3C02A8B81F60007D448 /* Word2Morse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7491A3BF2A8B81F60007D448 /* Word2Morse.swift */; };
 		74B522112A83790700F2D57F /* morsesound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 74B522102A83790700F2D57F /* morsesound.mp3 */; };
+		9302CAEE2A96481300B571AC /* AboutWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302CAED2A96481300B571AC /* AboutWebview.swift */; };
 		938BDEE52A9293330015C901 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEE42A9293330015C901 /* SpeechController.swift */; };
 		938BDEE72A93EA420015C901 /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEE62A93EA420015C901 /* HapticController.swift */; };
 		938BDEE92A9451EC0015C901 /* NaturalLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEE82A9451EC0015C901 /* NaturalLanguageController.swift */; };
@@ -86,6 +87,7 @@
 		7471BF2F2A8231A5006592BF /* MorseMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MorseMainView.swift; path = morsenator/View/MorseMainView.swift; sourceTree = SOURCE_ROOT; };
 		7491A3BF2A8B81F60007D448 /* Word2Morse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word2Morse.swift; sourceTree = "<group>"; };
 		74B522102A83790700F2D57F /* morsesound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = morsesound.mp3; sourceTree = "<group>"; };
+		9302CAED2A96481300B571AC /* AboutWebview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWebview.swift; sourceTree = "<group>"; };
 		938BDEE42A9293330015C901 /* SpeechController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 		938BDEE62A93EA420015C901 /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
 		938BDEE82A9451EC0015C901 /* NaturalLanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalLanguageController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				93B0D5B92A813975005CD5D1 /* Home.swift */,
+				9302CAED2A96481300B571AC /* AboutWebview.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				93CE83722A8B37D0003729D8 /* MorseEnum.swift in Sources */,
 				938BDEED2A9514EE0015C901 /* MorseOCRModel.swift in Sources */,
 				93B0D5B82A80CD3F005CD5D1 /* Morse.swift in Sources */,
+				9302CAEE2A96481300B571AC /* AboutWebview.swift in Sources */,
 				93CE83742A8B6FC2003729D8 /* ARMorseModel.swift in Sources */,
 				93F01BE72A77C0D000D57B5B /* ARHome.swift in Sources */,
 				740E80B12A77A4CB00D92D24 /* morsenatorApp.swift in Sources */,

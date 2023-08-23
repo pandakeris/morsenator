@@ -30,6 +30,15 @@ struct MorseMainView: View {
     @State private var task: Task<Void, Never>?
     @State private var isCopied: Bool = false
     @State private var translateCount = 0
+    @State private var langName = ""
+
+    private func setLangName() {
+        var langCode = nlController.recognizeLanguage(textInput)?.rawValue ?? ""
+        let usLocale = Locale(identifier: "en-US")
+        if let languageName = usLocale.localizedString(forLanguageCode: langCode) {
+            langName = languageName
+        }
+    }
 
     var body: some View {
         VStack {
@@ -51,6 +60,7 @@ struct MorseMainView: View {
                             self.morseCodeInput = filtered
                         }
                         self.textInput = morse2Words(morse: morseCodeInput)
+                        setLangName()
                     }
                 Button {
                     let clipboard = UIPasteboard.general
@@ -82,7 +92,8 @@ struct MorseMainView: View {
                             if textInput != newValue {
                                 textInput = newValue
                             }
-                            morseCodeInput = word2Morse(words: textInput)
+                            setLangName()
+                            morseCodeInput = word2Morse(words: newValue)
                         }
                 }
                 Button {
@@ -130,7 +141,7 @@ struct MorseMainView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
-            Text(nlController.recognizeLanguage(textInput)?.rawValue ?? "")
+            Text("Detected language: \(langName)")
         }
         .padding()
         .onChange(of: translateCount) { newValue in
