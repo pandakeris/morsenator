@@ -23,6 +23,7 @@
 		74B522112A83790700F2D57F /* morsesound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 74B522102A83790700F2D57F /* morsesound.mp3 */; };
 		9302CAEE2A96481300B571AC /* AboutWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302CAED2A96481300B571AC /* AboutWebview.swift */; };
 		9302CAF02A972D3100B571AC /* PDFKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302CAEF2A972D3100B571AC /* PDFKitView.swift */; };
+		9302CAF22A9753A000B571AC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9302CAF12A9753A000B571AC /* GameView.swift */; };
 		938BDEE52A9293330015C901 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEE42A9293330015C901 /* SpeechController.swift */; };
 		938BDEE72A93EA420015C901 /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEE62A93EA420015C901 /* HapticController.swift */; };
 		938BDEE92A9451EC0015C901 /* NaturalLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BDEE82A9451EC0015C901 /* NaturalLanguageController.swift */; };
@@ -90,6 +91,7 @@
 		74B522102A83790700F2D57F /* morsesound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = morsesound.mp3; sourceTree = "<group>"; };
 		9302CAED2A96481300B571AC /* AboutWebview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWebview.swift; sourceTree = "<group>"; };
 		9302CAEF2A972D3100B571AC /* PDFKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitView.swift; sourceTree = "<group>"; };
+		9302CAF12A9753A000B571AC /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		938BDEE42A9293330015C901 /* SpeechController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 		938BDEE62A93EA420015C901 /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
 		938BDEE82A9451EC0015C901 /* NaturalLanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalLanguageController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				93B0D5B92A813975005CD5D1 /* Home.swift */,
 				9302CAED2A96481300B571AC /* AboutWebview.swift */,
 				9302CAEF2A972D3100B571AC /* PDFKitView.swift */,
+				9302CAF12A9753A000B571AC /* GameView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				93F01BF32A77C1F700D57B5B /* FancyToastView.swift in Sources */,
 				93B0D5D12A855567005CD5D1 /* TimerController.swift in Sources */,
 				938BDEF02A9516940015C901 /* Model.xcdatamodeld in Sources */,
+				9302CAF22A9753A000B571AC /* GameView.swift in Sources */,
 				745642382A80E28A00C2D910 /* ScannerData.swift in Sources */,
 				93CE83762A8CA9F2003729D8 /* Motion.swift in Sources */,
 				93F01BF12A77C1DF00D57B5B /* FancyToastStyle.swift in Sources */,

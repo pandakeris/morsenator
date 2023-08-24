@@ -17,7 +17,7 @@ struct MainButton: ButtonStyle {
             .padding()
             .background(buttonColor)
             .foregroundColor(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .clipShape(RoundedRectangle(cornerRadius: 16))
             .scaleEffect(configuration.isPressed ? 1.2 : 1)
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
             .fontWeight(.bold)
