@@ -67,10 +67,10 @@ class ARViewController: UIViewController, ARSessionDelegate {
         var viewWidth: Int = 0
         var viewHeight: Int = 0
 
-        private let dotDuration = 100 ... 500
-        private let dashDuration = 500 ... 1000
-        private let wordGapDuration = 500 ... 1500
-        private let letterGapDuration = 1500 ... 3000
+        private let dotDuration = 100 ... 1000
+        private let dashDuration = 1000 ... 3000
+        private let wordGapDuration = 1000 ... 2000
+        private let letterGapDuration = 2000 ... 5000
 
         var box: ModelEntity!
 

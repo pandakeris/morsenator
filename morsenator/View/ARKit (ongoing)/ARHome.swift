@@ -17,14 +17,24 @@ struct ARHome: View {
                 ARViewControllerContainer().edgesIgnoringSafeArea(.all).environmentObject(arMorseModel)
                 Text(arMorseModel.morseText)
                 Text(arMorseModel.text)
-                Button {
-                    speechController.playSpeech(text: arMorseModel.text)
-                } label: {
-                    Label("Play", systemImage: "play.circle")
+                HStack {
+                    Button {
+                        speechController.playSpeech(text: arMorseModel.text)
+                    } label: {
+                        Label("Play", systemImage: "play.circle")
+                    }
+                    Button {
+                        arMorseModel.text = ""
+                        arMorseModel.morseText = ""
+                        arMorseModel.objectWillChange.send()
+                    } label: {
+                        Label("Clear", systemImage: "xmark.circle")
+                    }
                 }
             #endif
         }.onChange(of: arMorseModel.morseText) { newValue in
             arMorseModel.text = morse2Words(morse: newValue)
+            arMorseModel.objectWillChange.send()
         }
     }
 }

@@ -22,8 +22,8 @@ class GameScene: SKScene {
         // Perform the translation
         let prevPosition = ball?.position
         let newPosition = CGPoint(
-            x: prevPosition!.x + (roll * 3),
-            y: prevPosition!.y + (-pitch * 3)
+            x: prevPosition!.x + (roll * 4),
+            y: prevPosition!.y + (-pitch * 4)
         )
         if newPosition.x < frame.maxX && newPosition.x > frame.minX && newPosition.y > frame.minY && newPosition.y < frame.maxY {
             ball!.position = newPosition

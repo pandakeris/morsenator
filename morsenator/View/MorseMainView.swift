@@ -54,6 +54,9 @@ struct MorseMainView: View {
                     .textInputAutocapitalization(.never)
                     .padding()
                     .onReceive(Just(morseCodeInput)) { newValue in
+                        if focusedField == .text {
+                            return
+                        }
                         let allowedCharacters = ".- …—"
                         let filtered = newValue.filter { allowedCharacters.contains($0) }
                         if filtered != newValue {
@@ -74,28 +77,22 @@ struct MorseMainView: View {
                 }.buttonStyle(IconButton(width: 30, height: 30))
             }
             HStack {
-                if focusedField == .morse {
-                    TextField("Enter Text", text: $textInput)
-                        .focused($focusedField, equals: .text)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
-                        .padding()
-                } else {
-                    TextField("Enter Text", text: $textInput)
-                        .focused($focusedField, equals: .text)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
-                        .padding()
-                        .onReceive(Just(textInput)) { newValue in
-                            if textInput != newValue {
-                                textInput = newValue
-                            }
-                            setLangName()
-                            morseCodeInput = word2Morse(words: newValue)
+                TextField("Enter Text", text: $textInput)
+                    .focused($focusedField, equals: .text)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .padding()
+                    .onReceive(Just(textInput)) { newValue in
+                        if focusedField == .morse {
+                            return
                         }
-                }
+                        if textInput != newValue {
+                            textInput = newValue
+                        }
+                        setLangName()
+                        morseCodeInput = word2Morse(words: newValue)
+                    }
                 Button {
                     let clipboard = UIPasteboard.general
                     clipboard.setValue(textInput, forPasteboardType: UTType.plainText.identifier)
