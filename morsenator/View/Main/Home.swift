@@ -50,6 +50,11 @@ struct Home: View {
                         Label("AVFoundation", systemImage: "speaker.wave.2.circle")
                     }.buttonStyle(MainButton(width: UIDevice.isIPad ? 400 : 200, height: UIDevice.isIPad ? 75 : 35)).font(UIDevice.isIPad ? .largeTitle : .title2).padding()
                     NavigationLink {
+                        PDFKitView(url: URL(string: "https://rsgb.org/main/files/2012/10/Morse_Code_Sheet_01.pdf")!).scaledToFill()
+                    } label: {
+                        Label("Guide", systemImage: "book.circle")
+                    }.buttonStyle(MainButton(width: UIDevice.isIPad ? 400 : 200, height: UIDevice.isIPad ? 75 : 35)).font(UIDevice.isIPad ? .largeTitle : .title2).padding()
+                    NavigationLink {
                         WebView(url: URL(string: "https://www.aaronct.dev/product/morsenator")!).navigationTitle("About")
                     } label: {
                         Label("About", systemImage: "questionmark.circle")
